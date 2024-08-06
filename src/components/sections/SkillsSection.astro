@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import { skills } from "@/utils/constant";
+import InfiniteSliderSkills from "./InfiniteSliderSkills.astro";
+import MagneticElement from "@/components/React/MagneticElement";
+---
+
+<section
+  class="pt-14 section-skills bg-gradient-to-b from-slate-50 to-sky-300"
+  id="skills"
+>
+  <div class="flex flex-col gap-3 container max-w-9xl py-7">
+    <div class="overflow-hidden flex justify-center lg:gap-2 gap-1">
+      <h1 class="font-bold lg:text-6xl md:text-4xl text-2xl title-skills">
+        MY SKILLS
+      </h1>
+    </div>
+    <InfiniteSliderSkills direction="right" background="bg-transparent mt-6" />
+    <div class="lg:grid lg:grid-cols-2 gap-8 mt-6">
+      <div class="overflow-hidden grid">
+        <Image
+          src={"https://porto-iqbal.vercel.app/skill.png"}
+          alt={"My Skill"}
+          width={600}
+          height={600}
+          class="about-img"
+        />
+      </div>
+      <section class="flex flex-wrap gap-4 justify-center md:mt-0 mt-6">
+        {
+          skills.map((skill) => (
+            <a
+              class="overflow-hidden "
+              href={skill.tutorial}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MagneticElement client:load>
+                <div class="flex flex-col items-center gap-2 h-fit p-4 skill">
+                  <Image
+                    src={skill.image}
+                    alt={skill.name}
+                    width={50}
+                    height={50}
+                    loading={"eager"}
+                    class="md:w-[100px] md:h-[100px] w-[50px] h-[50px]"
+                  />
+                  <p class="text-black">{skill.name}</p>
+                </div>
+              </MagneticElement>
+            </a>
+          ))
+        }
+      </section>
+    </div>
+  </div>
+  <InfiniteSliderSkills direction="left" background="bg-transparent mt-3" />
+</section>

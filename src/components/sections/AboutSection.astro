@@ -1,0 +1,28 @@
+---
+const aboutText =
+  "Soy un desarrollador de software full stack y analista de datos con más de 4 años de experiencia en el desarrollo de soluciones web y móviles. Mi enfoque se centra en el análisis de datos y la optimización de procesos mediante tecnologías modernas. He liderado proyectos de rediseño de sitios web de comercio electrónico y optimización de aplicaciones móviles, logrando mejoras significativas en la experiencia del usuario y la eficiencia operativa.";
+---
+
+<section class="pt-24 w-full section-about pb-24" id="about">
+  <article class="flex flex-col gap-3 container max-w-7xl py-7">
+    <div class="overflow-hidden flex justify-center lg:gap-2 gap-1">
+      <h1 class="font-bold lg:text-7xl md:text-6xl text-2xl title-about">
+        ABOUT
+        <span class="font-bold lg:text-7xl md:text-4xl text-2xl title-about"> ME</span>
+      </h1>
+    </div>
+    <div class="mt-6">
+      <div class="overflow-hidden flex flex-wrap gap-1 lg:gap-3 w-full">
+        {
+          aboutText
+            .split(" ")
+            .map((word) => (
+              <h1 class="font-bold lg:text-4xl md:text-2xl text-xl text-about text-center leading-loose">
+                {word}
+              </h1>
+            ))
+        }
+      </div>
+    </div>
+  </article>
+</section>

@@ -1,0 +1,35 @@
+---
+import { sentences } from "../../utils/constant";
+---
+
+<section
+  class="w-full bg-gradient-to-b from-slate-50 to-sky-300 lg:pt-5 h-[85dvh]"
+>
+  <div class="py-7 container max-w-layout px-5 grid place-items-center h-full">
+    <div class="flex flex-col items-center gap-4">
+      {
+        sentences.map((text: { sentence: string[]; value: number }) => (
+          <div
+            class={`overflow-hidden text-wrap flex items-center gap-1 ${text.value === 1 ? "lg:gap-5" : "lg:gap-3"}`}
+          >
+            {text.sentence.map((letter) => (
+              <h1
+                class={`${text.value === 1 ? "lg:text-7xl md:text-4xl text-xl" : text.value === 2 ? "lg:text-6xl md:text-2xl text-lg" : "lg:text-4xl md:text-xl text-base"} m-0 name`}
+              >
+                {letter}
+              </h1>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .name {
+    font-family: "DM Serif Display", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+</style>
